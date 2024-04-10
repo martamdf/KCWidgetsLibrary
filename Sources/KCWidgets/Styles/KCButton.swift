@@ -8,8 +8,8 @@
 import SwiftUI
 
 
-struct MyButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
+public struct MyButtonStyle: ButtonStyle {
+    public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.body)
             .foregroundColor(.white)

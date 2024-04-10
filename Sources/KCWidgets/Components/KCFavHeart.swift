@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct FavHeart: View {
+public struct FavHeart: View {
     var isFavourite: Bool
     
     public init(isFavourite: Bool) {
         self.isFavourite = isFavourite
     }
     
-    var body: some View{
+    public var body: some View{
         if isFavourite {
             Image(systemName: "heart.circle")
                 .resizable()

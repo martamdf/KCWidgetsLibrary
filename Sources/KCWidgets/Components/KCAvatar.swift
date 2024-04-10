@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Avatar: View {
+public struct Avatar: View {
     var photo: String
     
     public init(photo: String) {
         self.photo = photo
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack{
             Image(photo)
                 .resizable()

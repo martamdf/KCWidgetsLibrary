@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NameView: View {
+public struct NameView: View {
     let name: String
     let isFav: Bool
     
@@ -16,7 +16,7 @@ struct NameView: View {
         self.isFav = isFav
     }
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading) {
             Text(name)
                 .font(.title)

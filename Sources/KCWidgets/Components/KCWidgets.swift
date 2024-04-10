@@ -8,8 +8,8 @@
 import SwiftUI
 
 public struct NameView: View {
-    let name: String
-    let isFav: Bool
+    public let name: String
+    public let isFav: Bool
     
     public init(name: String, isFav: Bool = false) {
         self.name = name

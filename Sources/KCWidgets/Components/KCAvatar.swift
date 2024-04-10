@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct Avatar: View {
-    var photo: String
+    public var photo: String
     
     public init(photo: String) {
         self.photo = photo

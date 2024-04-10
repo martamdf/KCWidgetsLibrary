@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct FavHeart: View {
-    var isFavourite: Bool
+    public var isFavourite: Bool
     
     public init(isFavourite: Bool) {
         self.isFavourite = isFavourite

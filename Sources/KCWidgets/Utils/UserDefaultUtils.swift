@@ -8,7 +8,7 @@
 import Foundation
 
 
-func getAllObjects<Object>(groupName: String, castTo type: Object.Type) -> Object? where Object: Decodable
+public func getAllObjects<Object>(groupName: String, castTo type: Object.Type) -> Object? where Object: Decodable
 {
     guard let data = UserDefaults(suiteName: groupName)?.value(forKey: "heroes") as? Data  else { return nil }
     let decoder = JSONDecoder()

@@ -8,52 +8,23 @@
 import Foundation
 
 
-public func getAllObjects() -> [HeroDetail] {
-    let defaultObject: [HeroDetail] = []
-    if let objects = UserDefaults(suiteName: "group.DragonBallWidgetKC")?.value(forKey: "heroes") as? Data {
-        let decoder = JSONDecoder()
-        if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [HeroDetail] {
-            return objectsDecoded
-        } else {
-            return defaultObject
-        }
-    } else {
-        return defaultObject
+func getAllObjects<Object>(groupName: String, castTo type: Object.Type) -> Object? where Object: Decodable
+{
+    guard let data = UserDefaults(suiteName: groupName)?.value(forKey: "heroes") as? Data  else { return nil }
+    let decoder = JSONDecoder()
+    do {
+        let object = try decoder.decode(type, from: data)
+        return object
+    } catch let decodeError{
+        print("Failed to decode object:" , decodeError)
+        return nil
     }
 }
 
-public func saveAllObjects(heroes: [HeroDetail]) {
+
+public func saveAllObjects<Object>(_ object: Object) where Object: Encodable {
     let encoder = JSONEncoder()
-    if let encoded = try? encoder.encode(heroes){
+    if let encoded = try? encoder.encode(object){
         UserDefaults(suiteName: "group.DragonBallWidgetKC")?.setValue(encoded, forKey: "heroes")
     }
 }
-
-public func getHero(name: String) -> HeroDetail {
-    let defaultObject = goku
-    if let objects = UserDefaults(suiteName: "group.DragonBallWidgetKC")?.value(forKey: "heroes") as? Data {
-        let decoder = JSONDecoder()
-        if let objectsDecoded =
-            try? decoder.decode(Array.self, from: objects) as [HeroDetail] {
-            if let hero = objectsDecoded.first(where: {$0.name == name}) {
-                return hero
-            }
-        }
-    }
-    return defaultObject
-}
-
-public func updateHero(_ hero: HeroDetail) {
-    var heroes = getAllObjects()
-    if let row = heroes.firstIndex(where: {$0.name == hero.name}) {
-        heroes[row] = hero
-    }
-    saveAllObjects(heroes: heroes)
-}
-
-public let goku = HeroDetail(
-    name: "Goku",
-    avatar: "GokuAvatar",
-    healthLevel: 14,
-    bio: "Test",
-    favorite: true)

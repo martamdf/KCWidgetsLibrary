@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 public struct MyButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -16,6 +15,5 @@ public struct MyButtonStyle: ButtonStyle {
             .frame(width: 100, height: 50, alignment: .center)
             .background(configuration.isPressed ? Color.red : Color.orange)
             .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
-        
     }
 }

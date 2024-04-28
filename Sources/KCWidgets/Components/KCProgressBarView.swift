@@ -8,9 +8,9 @@
 import SwiftUI
 
 public struct KCProgressBarView: View {
-    public var health: Double
+    public var health: Int
     
-    public init(health: Double) {
+    public init(health: Int) {
         self.health = health
     }
     

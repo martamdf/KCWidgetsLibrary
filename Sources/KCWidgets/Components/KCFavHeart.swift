@@ -29,3 +29,7 @@ public struct FavHeart: View {
         }
     }
 }
+
+#Preview {
+    FavHeart(isFavourite: true)
+}

@@ -32,3 +32,7 @@ public struct NameView: View {
     }
 }
 
+#Preview {
+    NameView(name: "Goku", isFav: true)
+}
+

@@ -28,3 +28,7 @@ public struct Avatar: View {
         }
     }
 }
+
+#Preview {
+    Avatar(photo: "")
+}
